@@ -243,6 +243,7 @@ void AsyncReadFileAfter(uv_work_t *req) {
         if (!tag->isEmpty()) {
             tagObj->Set(Nan::New("album").ToLocalChecked(), TagLibStringToString(tag->album()));
             tagObj->Set(Nan::New("artist").ToLocalChecked(), TagLibStringToString(tag->artist()));
+            tagObj->Set(Nan::New("albumArtist").ToLocalChecked(), TagLibStringToString(tag->albumArtist()));
             tagObj->Set(Nan::New("comment").ToLocalChecked(), TagLibStringToString(tag->comment()));
             tagObj->Set(Nan::New("genre").ToLocalChecked(), TagLibStringToString(tag->genre()));
             tagObj->Set(Nan::New("path").ToLocalChecked(), TagLibStringToString(baton->path));

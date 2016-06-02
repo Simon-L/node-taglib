@@ -3,8 +3,8 @@
     {
       "target_name": "taglib",
       "sources": ["src/bufferstream.c", "src/tag.cc", "src/taglib.cc"],
-      "libraries": ["<!(taglib-config --libs)"],
-      "include_dirs": ["<!(node -e \"require('nan')\")"],
+      "libraries": ["-Wl,-rpath=<!(dirname $(dirname $(pwd)))/lib/ -ltag"],
+      "include_dirs": ["<!(node -e \"require('nan')\")", "<!(dirname $(dirname $(pwd)))/include/taglib"],
       'conditions': [
         ['OS=="mac"', {
           # cflags on OS X are stupid and have to be defined like this
